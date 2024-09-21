@@ -49,9 +49,6 @@ public class Car2d : MonoBehaviour
         _maxSpeed = 5000 * _speedMult*1.5f;
 
         _motor.maxMotorTorque = _maxSpeed;
-
-        Debug.Log(_speedMult);
-        Debug.Log(_fuelMult);
     }
 
     private void Update()

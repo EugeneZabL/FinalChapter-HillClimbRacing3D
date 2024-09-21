@@ -7,21 +7,21 @@ public class PlayerStats : ScriptableObject
 {
     public int MaxLevel = 5;
 
-
-    private int _correctLevelOfSpeed = 1;
-    private int _correctLevelOfFuel = 1;
+    [SerializeField]
+    private int _correctLevelOfSpeed, _correctLevelOfFuel = 1;
 
     public int CorrectLevelOfSpeed { get { return _correctLevelOfSpeed; } set { _correctLevelOfSpeed = value > MaxLevel ? MaxLevel : value; } }
     public int CorrectLevelOfFuel { get { return _correctLevelOfFuel; } set { _correctLevelOfFuel = value > MaxLevel ? MaxLevel : value; } }
 
-
+    [SerializeField]
     private float _maxScore = 0;
     public float MaxScore { get; }
 
-
+    [SerializeField]
     private float _correctScore = 0;
     public float CorrectScore
     {
+
         get { return _correctScore; }
         set
         {
@@ -32,6 +32,8 @@ public class PlayerStats : ScriptableObject
                 _maxScore = _correctScore;
         }
     }
+
+    public int Coins;
 
     public float CalculateSpeedMultiplier(CarSettings car)
     {
