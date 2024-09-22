@@ -15,23 +15,7 @@ public class PlayerStats : ScriptableObject
 
     [SerializeField]
     private float _maxScore = 0;
-    public float MaxScore { get; }
-
-    [SerializeField]
-    private float _correctScore = 0;
-    public float CorrectScore
-    {
-
-        get { return _correctScore; }
-        set
-        {
-            if (value > 0)
-                _correctScore = value;
-
-            if (_maxScore < _correctScore)
-                _maxScore = _correctScore;
-        }
-    }
+    public float MaxScore { get { return _maxScore; } set { _maxScore = value>_maxScore ? value : _maxScore; } }
 
     public int Coins;
 

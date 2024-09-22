@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: NewPlayer
   m_EditorClassIdentifier: 
   MaxLevel: 5
-  _correctLevelOfSpeed: 1
-  _correctLevelOfFuel: 1
+  _correctLevelOfSpeed: 5
+  _correctLevelOfFuel: 5
   _maxScore: 0
-  _correctScore: 0
   Coins: 0

@@ -10,18 +10,16 @@ public class NotificationManger : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _text;
 
-    CanvasGroup _canvasGroup;
+    Tween _anim = new Tween();
 
-    private void Start()
-    {
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
     public void Message(string textMessage)
     {
-        _canvasGroup.alpha = 1;
+        _anim.Stop();
+
+        transform.localScale = new Vector3(1,1,1);
 
         _text.text = textMessage;
 
-        Tween.Custom(1f,0f,1f, onValueChange: newVal => _canvasGroup.alpha = newVal, startDelay: 2f);
+        _anim = Tween.Scale(transform, 0f, 5f);
     }
 }

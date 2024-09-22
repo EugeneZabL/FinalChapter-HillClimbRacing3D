@@ -26,7 +26,7 @@ public class Car2d : MonoBehaviour
     public bool BreakIsPressed = false;
 
     private float _amountOfFuel;
-    public float AmountOfFuel { get { return _amountOfFuel; } set { _amountOfFuel = value > 100 ? 100 : value;} }
+    public float AmountOfFuel { get { return _amountOfFuel; } set { _amountOfFuel = value > 100 ? 100 : value; } }
 
     JointMotor2D _motor;
 
@@ -46,7 +46,7 @@ public class Car2d : MonoBehaviour
         _speedMult = PlayerStat.CalculateSpeedMultiplier(CarStat);
         _fuelMult = PlayerStat.CalculateFuelMultiplier(CarStat);
 
-        _maxSpeed = 5000 * _speedMult*1.5f;
+        _maxSpeed = 5000 * _speedMult * 1.5f;
 
         _motor.maxMotorTorque = _maxSpeed;
     }
@@ -54,6 +54,7 @@ public class Car2d : MonoBehaviour
     private void Update()
     {
         //MoveControllByKey();
+
 
         if (BreakIsPressed)
             BreakeCar();
@@ -65,6 +66,10 @@ public class Car2d : MonoBehaviour
 
         _motor.motorSpeed = -_speed;
         _backWheel.motor = _motor;
+    }
+    private void FixedUpdate()
+    {
+        LableHandler.Instance.UpdateFuel(_amountOfFuel);
     }
 
     void GasCar()
@@ -100,7 +105,7 @@ public class Car2d : MonoBehaviour
 
     public AudioClip TakeCorrectAudioClip()
     {
-        return CarStat.TakeAClip(_speed,_maxSpeed, GasIsPressed || BreakIsPressed);
+        return CarStat.TakeAClip(_speed, _maxSpeed, GasIsPressed || BreakIsPressed);
     }
 
     IEnumerator FuelController()
@@ -110,11 +115,21 @@ public class Car2d : MonoBehaviour
 
             if (GasIsPressed)
                 AmountOfFuel -= 1 * Time.deltaTime * _fuelMult;
-            else if(BreakIsPressed)
+            else if (BreakIsPressed)
                 AmountOfFuel -= 0.5f * Time.deltaTime * _fuelMult;
 
-            if(AmountOfFuel<=0)
-                Debug.Log("GG");
+            if (AmountOfFuel <= 0)
+            {
+                GetComponent<ScoreManager>().EndGame(false);
+                GasIsPressed = false;
+                BreakIsPressed = false;
+
+                _particleLeft.Stop();
+                _particleRight.Stop();
+
+                yield break;
+            }
+
 
             yield return null;
         }
