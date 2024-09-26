@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPlayer", menuName = "ScriptableObjects/Cars/PlayerStats", order = 1)]
 public class PlayerStats : ScriptableObject
 {
+    public CarSettings CarType;
+
     public int MaxLevel = 5;
 
     [SerializeField]
@@ -19,21 +21,21 @@ public class PlayerStats : ScriptableObject
 
     public int Coins;
 
-    public float CalculateSpeedMultiplier(CarSettings car)
+    public float CalculateSpeedMultiplier()
     {
         // ѕроверка, чтобы currentLevel был в пределах допустимого диапазона
         _correctLevelOfSpeed = Mathf.Clamp(_correctLevelOfSpeed, 1, MaxLevel);
 
         // ‘ормула расчета множител€ скорости
-        return car.StartSpeedMult + ((car.MaxSpeedMult - car.StartSpeedMult) / (MaxLevel - 1)) * (_correctLevelOfSpeed - 1);
+        return CarType.StartSpeedMult + ((CarType.MaxSpeedMult - CarType.StartSpeedMult) / (MaxLevel - 1)) * (_correctLevelOfSpeed - 1);
     }
 
-    public float CalculateFuelMultiplier(CarSettings car)
+    public float CalculateFuelMultiplier()
     {
         // ѕроверка, чтобы currentLevel был в пределах допустимого диапазона
         _correctLevelOfFuel = Mathf.Clamp(_correctLevelOfFuel, 1, MaxLevel);
 
         // ‘ормула расчета множител€ скорости
-        return car.StartFuelEffec - ((car.StartFuelEffec - car.MaxFuelEffec) / (MaxLevel - 1)) * (_correctLevelOfFuel - 1);
+        return CarType.StartFuelEffec - ((CarType.StartFuelEffec - CarType.MaxFuelEffec) / (MaxLevel - 1)) * (_correctLevelOfFuel - 1);
     }
 }

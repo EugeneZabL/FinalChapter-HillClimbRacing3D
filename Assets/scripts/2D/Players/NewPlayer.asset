@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ed61b9e72b3f643bd38194bb68567a, type: 3}
   m_Name: NewPlayer
   m_EditorClassIdentifier: 
-  MaxLevel: 5
-  _correctLevelOfSpeed: 5
-  _correctLevelOfFuel: 5
+  CarType: {fileID: 11400000, guid: 00f4269e25fd1b64289152a08d8f2f48, type: 2}
+  MaxLevel: 10
+  _correctLevelOfSpeed: 1
+  _correctLevelOfFuel: 1
   _maxScore: 0
   Coins: 0

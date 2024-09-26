@@ -17,8 +17,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     private float _distantMulti = 12.0f;
 
-    [SerializeField]
-    GameObject _endCanvas;
+    private GameObject _endCanvas;
 
 
     void Start()
@@ -42,16 +41,19 @@ public class ScoreManager : MonoBehaviour
     public void EndGame(bool isWin)
     {
         LableHandler.Instance.HUDCanvas.gameObject.SetActive(false);
+
+        _endCanvas = Instantiate(Resources.Load("EndCanvas") as GameObject);
         _endCanvas.SetActive(true);
 
         EndCanvas endScript = _endCanvas.GetComponent<EndCanvas>();
         if (isWin)
-            endScript.Name.text = "You won";
+            endScript.Name.text = "Congratulations, you've won! ;)";
         else
             endScript.Name.text = "Running out of fuel! :(";
 
-        float tempScore = Mathf.Round(_distantCounter._metersCounter * _distantMulti);
-        endScript.Score.text = _playerStat.MaxScore < tempScore ? "New Record! \n<color=\"green\">Score - " + tempScore : "Score - " + tempScore;
+
+        _currentScore += Mathf.Round(_distantCounter._metersCounter * _distantMulti) + (isWin ? 1000:0);
+        endScript.Score.text = _playerStat.MaxScore < _currentScore ? "New Record! \n<color=\"green\">Score - " + _currentScore : "Score - " + _currentScore;
 
         endScript.Coin.text = _playerStat.Coins + " + " + _currentCoin + "\nMoney - "+ (_playerStat.Coins + _currentCoin);
 
@@ -60,8 +62,6 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveStats()
     {
-        _currentScore += _distantCounter._metersCounter * _distantMulti;
-
         _playerStat.MaxScore = Mathf.Round(_currentScore);
         _playerStat.Coins += _currentCoin;
     }

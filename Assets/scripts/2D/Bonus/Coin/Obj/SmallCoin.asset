@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615d322373bb0304e9d994ad16a1a89c, type: 3}
   m_Name: SmallCoin
   m_EditorClassIdentifier: 
-  Value: 5
-  Size: 1
-  ScoreMulti: 10
+  Value: 1
+  Size: 0.8
+  ScoreMulti: 3

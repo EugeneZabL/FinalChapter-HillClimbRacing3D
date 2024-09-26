@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615d322373bb0304e9d994ad16a1a89c, type: 3}
   m_Name: BigCoin
   m_EditorClassIdentifier: 
-  Value: 25
-  Size: 1.5
-  ScoreMulti: 50
+  Value: 10
+  Size: 1.3
+  ScoreMulti: 2

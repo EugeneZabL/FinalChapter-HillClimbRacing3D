@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167badd25b04c2c449f231e0b856e58b, type: 3}
+  m_Name: SportCar
+  m_EditorClassIdentifier: 
+  StartSpeedMult: 0.5
+  MaxSpeedMult: 1.2
+  StartFuelEffec: 5
+  MaxFuelEffec: 1
+  _colorIndex: 0
+  _carPrefab: {fileID: 100006, guid: 3d145164381b5e74da063585c935cc39, type: 3}
+  _colors:
+  - {fileID: 2100000, guid: 37caefd6ad1b9664b88d4ff30f5d6b7c, type: 2}
+  - {fileID: 2100000, guid: 44e259f53fea44e4b8a5f970a69a1106, type: 2}
+  - {fileID: 2100000, guid: 5eb6b9a26769af04b9011e8b60a807c7, type: 2}
+  _idle: {fileID: 8300000, guid: c502041826854664683f9914f63427b0, type: 3}
+  _lowOn: {fileID: 8300000, guid: 75fa27e467267c74f91f1f6f4e74ff88, type: 3}
+  _lowOff: {fileID: 8300000, guid: bb683044c23cd50438d45fe475089c84, type: 3}
+  _medOn: {fileID: 8300000, guid: 22cd46996da3b624bb08935264560d8c, type: 3}
+  _medOff: {fileID: 8300000, guid: 30ab19edabbfdea499f3db426001e120, type: 3}
+  _highOn: {fileID: 8300000, guid: e9643d8581d235f45a62997cba851988, type: 3}
+  _highOff: {fileID: 8300000, guid: 132c1515ea005404fb6144c976c99ed6, type: 3}

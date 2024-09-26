@@ -10,16 +10,38 @@ public class CarSettings : ScriptableObject
     public float StartFuelEffec = 5.0f;
     public float MaxFuelEffec = 1f;
 
+    public int MaxColors { get { return _colors.Length; } }
 
     [SerializeField]
-    private AudioClip _idle, _lowOn,_lowOff, _medOn, _medOff, _highOn, _highOff;
+    private int _colorIndex;
+    public int ColorIndex
+    {
+        get { return _colorIndex; }
+        set
+        {
+            if (value >= MaxColors)
+                value = MaxColors;
+            if (value < 0)
+                value = 0;
+
+            _colorIndex = value;
+        }
+    }
+
+    [SerializeField]
+    private GameObject _carPrefab;
+    [SerializeField]
+    private Material[] _colors;
+
+    [SerializeField]
+    private AudioClip _idle, _lowOn, _lowOff, _medOn, _medOff, _highOn, _highOff;
 
     public AudioClip TakeAClip(float speed, float maxSpeed, bool isActive)
     {
         //Debug.Log("speed " + speed + " maxSpeed " + maxSpeed + " isActive " + isActive);
 
         // Если машина не движется, вернуть звук холостого хода
-        if (speed > -1 && speed<1)
+        if (speed > -1 && speed < 1)
         {
             return _idle;
         }
@@ -41,6 +63,23 @@ public class CarSettings : ScriptableObject
         else
         {
             return isActive ? _highOn : _highOff; // Высокая скорость
+        }
+    }
+
+    public void TakeCarModel(Transform _parent)
+    {
+
+        foreach (Transform child in _parent)
+        {
+            Destroy(child.gameObject);  // Удаляем каждый дочерний объект
+        }
+
+        GameObject newObject = Instantiate(_carPrefab,_parent);
+
+        Renderer[] meshes = newObject.GetComponentsInChildren<Renderer>();
+        foreach(Renderer mesh in meshes)
+        {
+            mesh.material = _colors[_colorIndex];
         }
     }
 }

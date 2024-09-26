@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CarBody
+  - EndCanvas
+  - LoadManager
   layers:
   - Default
   - TransparentFX

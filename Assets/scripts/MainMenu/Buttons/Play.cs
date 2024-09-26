@@ -7,6 +7,6 @@ public class Play : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("2D GraficUpdate");
+        LoadManager.Instance.ChangeScreen("2D GraficUpdate");
     }
 }

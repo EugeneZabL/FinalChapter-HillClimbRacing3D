@@ -8,12 +8,12 @@ public class PauseButonType : MonoBehaviour
     public void OnMainMenuGo()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        LoadManager.Instance.ChangeScreen("MainMenu");
     }
     
     public void OnRestartLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("2D GraficUpdate");
+        LoadManager.Instance.ChangeScreen("2D GraficUpdate");
     }    
 }

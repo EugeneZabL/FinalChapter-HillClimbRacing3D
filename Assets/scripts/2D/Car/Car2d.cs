@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Car2d : MonoBehaviour
 {
-    public CarSettings CarStat;
     public PlayerStats PlayerStat;
 
     [SerializeField]
-    private ParticleSystem _particleLeft, _particleRight;
-
+    private Transform _model;
 
     [SerializeField]
     WheelJoint2D _backWheel, _frontWheel;
@@ -43,12 +41,14 @@ public class Car2d : MonoBehaviour
 
         StartCoroutine(FuelController());
 
-        _speedMult = PlayerStat.CalculateSpeedMultiplier(CarStat);
-        _fuelMult = PlayerStat.CalculateFuelMultiplier(CarStat);
+        _speedMult = PlayerStat.CalculateSpeedMultiplier();
+        _fuelMult = PlayerStat.CalculateFuelMultiplier();
 
-        _maxSpeed = 5000 * _speedMult * 1.5f;
+        _maxSpeed = 1000f * _speedMult * 1.5f;
 
         _motor.maxMotorTorque = _maxSpeed;
+
+        PlayerStat.CarType.TakeCarModel(_model);
     }
 
     private void Update()
@@ -105,7 +105,7 @@ public class Car2d : MonoBehaviour
 
     public AudioClip TakeCorrectAudioClip()
     {
-        return CarStat.TakeAClip(_speed, _maxSpeed, GasIsPressed || BreakIsPressed);
+        return PlayerStat.CarType.TakeAClip(_speed, _maxSpeed, GasIsPressed || BreakIsPressed);
     }
 
     IEnumerator FuelController()
@@ -120,19 +120,24 @@ public class Car2d : MonoBehaviour
 
             if (AmountOfFuel <= 0)
             {
-                GetComponent<ScoreManager>().EndGame(false);
-                GasIsPressed = false;
-                BreakIsPressed = false;
-
-                _particleLeft.Stop();
-                _particleRight.Stop();
-
+                StopGame(false);
                 yield break;
             }
 
 
             yield return null;
         }
+    }
+
+    public void StopGame(bool isWin)
+    {
+        GasIsPressed = false;
+        BreakIsPressed = false;
+
+        foreach (ParticleSystem partic in GetComponentsInChildren<ParticleSystem>())
+            partic.Stop();
+
+        GetComponent<ScoreManager>().EndGame(isWin);
     }
 
 }

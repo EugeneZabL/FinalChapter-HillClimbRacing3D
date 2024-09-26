@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615d322373bb0304e9d994ad16a1a89c, type: 3}
   m_Name: MediumCoin
   m_EditorClassIdentifier: 
-  Value: 15
-  Size: 1.2
-  ScoreMulti: 15
+  Value: 5
+  Size: 1
+  ScoreMulti: 2

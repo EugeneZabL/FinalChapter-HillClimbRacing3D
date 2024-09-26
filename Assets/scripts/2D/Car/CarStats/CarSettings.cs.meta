@@ -3,7 +3,15 @@ guid: 167badd25b04c2c449f231e0b856e58b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _carPrefab: {instanceID: 0}
+  - _idle: {fileID: 8300000, guid: c502041826854664683f9914f63427b0, type: 3}
+  - _lowOn: {fileID: 8300000, guid: 75fa27e467267c74f91f1f6f4e74ff88, type: 3}
+  - _lowOff: {fileID: 8300000, guid: bb683044c23cd50438d45fe475089c84, type: 3}
+  - _medOn: {fileID: 8300000, guid: 22cd46996da3b624bb08935264560d8c, type: 3}
+  - _medOff: {fileID: 8300000, guid: 30ab19edabbfdea499f3db426001e120, type: 3}
+  - _highOn: {fileID: 8300000, guid: e9643d8581d235f45a62997cba851988, type: 3}
+  - _highOff: {fileID: 8300000, guid: 132c1515ea005404fb6144c976c99ed6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
