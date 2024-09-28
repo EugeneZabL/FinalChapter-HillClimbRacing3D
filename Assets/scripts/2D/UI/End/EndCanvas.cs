@@ -2,13 +2,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class EndCanvas : MonoBehaviour
+namespace HillClimb3d.UI
 {
-    public TextMeshProUGUI Name, Score, Coin;
-
-    public void OnContinButton()
+    public class EndCanvas : MonoBehaviour
     {
-        SceneManager.LoadScene("MainMenu");
+        public TextMeshProUGUI Name, Score, Coin;
 
+        public void OnContinButton()
+        {
+            SceneManager.LoadScene("MainMenu");
+
+        }
     }
 }

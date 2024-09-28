@@ -1952,21 +1952,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1824564368}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1320040310}
-        m_TargetAssemblyTypeName: ButtonPause, Assembly-CSharp
-        m_MethodName: OnClickPause
+      - m_Target: {fileID: 1824564374}
+        m_TargetAssemblyTypeName: HillClimb3d.UI.Pause.PauseButonType, Assembly-CSharp
+        m_MethodName: OnPauseOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5280,6 +5268,8 @@ GameObject:
   - component: {fileID: 388118112}
   - component: {fileID: 388118111}
   - component: {fileID: 388118110}
+  - component: {fileID: 388118115}
+  - component: {fileID: 388118114}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -5371,6 +5361,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &388118114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388118109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ec5771d9839d4b8e4ec7b3cd5e4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1168378733}
+  _finish: {fileID: 1398195879}
+--- !u!114 &388118115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388118109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7c13ced71fff64b9d81e97555eca1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUDCanvas: {fileID: 0}
+  DistantCalc: {fileID: 0}
+  _scoreLable: {fileID: 1378998593}
+  _coinLable: {fileID: 1874752936}
+  _fuelLable: {fileID: 637346762}
+  _distanceLable: {fileID: 881726108}
+  _fuelSlider: {fileID: 529203770}
+  _distanceSlider: {fileID: 1192026004}
 --- !u!1 &408510033
 GameObject:
   m_ObjectHideFlags: 0
@@ -7269,7 +7293,6 @@ GameObject:
   - component: {fileID: 529203770}
   - component: {fileID: 529203769}
   - component: {fileID: 529203768}
-  - component: {fileID: 529203771}
   m_Layer: 5
   m_Name: Fuel
   m_TagString: Untagged
@@ -7387,18 +7410,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &529203771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529203766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27339e914a81a243a78475d070d0505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &532655387
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,7 +9226,7 @@ GameObject:
   - component: {fileID: 637346763}
   - component: {fileID: 637346762}
   m_Layer: 5
-  m_Name: Left
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13210,7 +13221,7 @@ GameObject:
   - component: {fileID: 881726109}
   - component: {fileID: 881726108}
   m_Layer: 5
-  m_Name: Left
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17215,6 +17226,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166406234}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1168378733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3512578207579955072, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
+  m_PrefabInstance: {fileID: 5289911404268656017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1168378735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5658980895798852802, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
+  m_PrefabInstance: {fileID: 5289911404268656017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec952ab1a124784db4ad69b09181faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1169621506
 GameObject:
   m_ObjectHideFlags: 0
@@ -17397,7 +17424,6 @@ GameObject:
   - component: {fileID: 1192026004}
   - component: {fileID: 1192026003}
   - component: {fileID: 1192026002}
-  - component: {fileID: 1192026005}
   m_Layer: 5
   m_Name: Distant
   m_TagString: Untagged
@@ -17515,19 +17541,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1192026005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192026000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b68ec5771d9839d4b8e4ec7b3cd5e4aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _metersCounter: 0
 --- !u!1001 &1197607756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18964,7 +18977,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320040309}
-  - component: {fileID: 1320040310}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -18992,18 +19004,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1320040310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320040308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9cf5636b4418a24ebcf9f28e6bc0a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1330670117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20545,9 +20545,8 @@ GameObject:
   - component: {fileID: 1397772506}
   - component: {fileID: 1397772509}
   - component: {fileID: 1397772508}
-  - component: {fileID: 1397772512}
-  - component: {fileID: 1397772511}
   - component: {fileID: 1397772513}
+  - component: {fileID: 1397772514}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -20612,112 +20611,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397772505}
   m_CullTransparentMesh: 1
---- !u!114 &1397772511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397772505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71786f01a18558044a6ee9e401690861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonType: 1
---- !u!114 &1397772512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397772505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1397772511}
-          m_TargetAssemblyTypeName: CarControllButtonScript, Assembly-CSharp
-          m_MethodName: ButtonPressedUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9095834118209313868}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Stop
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 754522745399498839}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Stop
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1397772511}
-          m_TargetAssemblyTypeName: CarControllButtonScript, Assembly-CSharp
-          m_MethodName: ButtonPressedDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 9095834118209313868}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 754522745399498839}
-          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1397772513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20732,6 +20625,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 3
   m_AspectRatio: 0.4613003
+--- !u!114 &1397772514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397772505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c554d70ced95f34db3bf8518dd96e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1398195878
 GameObject:
   m_ObjectHideFlags: 0
@@ -20759,7 +20665,7 @@ Transform:
   m_GameObject: {fileID: 1398195878}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.53, y: 3.46, z: -0.7721958}
+  m_LocalPosition: {x: 3, y: 3.46, z: -0.7721958}
   m_LocalScale: {x: 7.94, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27329,7 +27235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7600b80c9af2646b12cb0a345de7fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _counter: 3
   _interface: {fileID: 132690911}
   _counterObj: {fileID: 911024833}
   _text: {fileID: 2025698255}
@@ -30057,7 +29962,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1963660161}
-  - component: {fileID: 1963660162}
   m_Layer: 5
   m_Name: Labels
   m_TagString: Untagged
@@ -30089,26 +29993,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1963660162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963660160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556bb18dda335474cb8d31f1fd1ff338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HUDCanvas: {fileID: 388118112}
-  _scoreLable: {fileID: 1378998593}
-  _coinLable: {fileID: 1874752936}
-  _fuelLable: {fileID: 637346762}
-  _distanceLable: {fileID: 881726108}
-  _fuelSlider: {fileID: 529203770}
-  _distanceSlider: {fileID: 1192026004}
-  DistantLabel: {fileID: 1192026005}
 --- !u!1001 &1967282732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30182,9 +30066,8 @@ GameObject:
   - component: {fileID: 1967886721}
   - component: {fileID: 1967886726}
   - component: {fileID: 1967886725}
-  - component: {fileID: 1967886723}
-  - component: {fileID: 1967886722}
   - component: {fileID: 1967886727}
+  - component: {fileID: 1967886728}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -30211,64 +30094,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1967886722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967886720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71786f01a18558044a6ee9e401690861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonType: 0
---- !u!114 &1967886723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967886720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1967886722}
-          m_TargetAssemblyTypeName: CarControllButtonScript, Assembly-CSharp
-          m_MethodName: ButtonPressedUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1967886722}
-          m_TargetAssemblyTypeName: CarControllButtonScript, Assembly-CSharp
-          m_MethodName: ButtonPressedDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1967886725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30321,6 +30146,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 3
   m_AspectRatio: 0.8122867
+--- !u!114 &1967886728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967886720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6293a5bda56828b4ebd73ab85b780293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1001 &1968170384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32392,11 +32230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 3
   m_AspectRatio: 1
---- !u!198 &754522745399498839 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3293130239868002367, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
-  m_PrefabInstance: {fileID: 5289911404268656017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &838780091590122710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33384,6 +33217,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210810217398688965, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1168378735}
+    - target: {fileID: 6210810217398688965, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -33608,11 +33445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!198 &9095834118209313868 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1846908756034466136, guid: e014ab34c33ccec44a1b6244202cf9b0, type: 3}
-  m_PrefabInstance: {fileID: 5289911404268656017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

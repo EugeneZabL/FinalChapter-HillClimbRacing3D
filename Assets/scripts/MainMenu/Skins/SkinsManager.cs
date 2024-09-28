@@ -2,63 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkinsManager : MonoBehaviour
+namespace HillClimb3d.UI.Skins
 {
-    [SerializeField]
-    private List<CarSettings> _carTypes;
-
-    [SerializeField]
-    private PlayerStats _playerStat;
-
-    [SerializeField]
-    private Transform _carModel;
-
-    private int _index = 0;
-
-    private void OnEnable()
+    public class SkinsManager : MonoBehaviour
     {
-        _playerStat.CarType.TakeCarModel(_carModel);
-        _index = _carTypes.IndexOf(_playerStat.CarType);
-    }
+        [SerializeField]
+        private List<CarSettings> _carTypes;
 
-    public void OnLeftSkins()
-    {
-        if(_index>0)
-            _index--;
-        else
-            _index = _carTypes.Count-1;
+        [SerializeField]
+        private PlayerStats _playerStat;
 
-        _playerStat.CarType = _carTypes[_index];
-        _playerStat.CarType.TakeCarModel(_carModel);
-    }
-    public void OnRightSkins()
-    {
-        if (_index < _carTypes.Count - 1)
-            _index++;
-        else
-            _index = 0;
+        [SerializeField]
+        private Transform _carModel;
 
-        _playerStat.CarType = _carTypes[_index];
-        _playerStat.CarType.TakeCarModel(_carModel);
-    }
+        private int _index = 0;
 
-    public void OnLeftColor()
-    {
-        if (_playerStat.CarType.ColorIndex > 0)
-            _playerStat.CarType.ColorIndex--;
-        else
-            _playerStat.CarType.ColorIndex = _playerStat.CarType.MaxColors - 1;
+        private void OnEnable()
+        {
+            _playerStat.CarType.TakeCarModel(_carModel);
+            _index = _carTypes.IndexOf(_playerStat.CarType);
+        }
 
-        _playerStat.CarType.TakeCarModel(_carModel);
-    }
+        public void OnLeftSkins()
+        {
+            if (_index > 0)
+                _index--;
+            else
+                _index = _carTypes.Count - 1;
 
-    public void OnRightColor()
-    {
-        if (_playerStat.CarType.ColorIndex < _playerStat.CarType.MaxColors - 1)
-            _playerStat.CarType.ColorIndex++;
-        else
-            _playerStat.CarType.ColorIndex = 0;
+            _playerStat.CarType = _carTypes[_index];
+            _playerStat.CarType.TakeCarModel(_carModel);
+        }
+        public void OnRightSkins()
+        {
+            if (_index < _carTypes.Count - 1)
+                _index++;
+            else
+                _index = 0;
 
-        _playerStat.CarType.TakeCarModel(_carModel);
+            _playerStat.CarType = _carTypes[_index];
+            _playerStat.CarType.TakeCarModel(_carModel);
+        }
+
+        public void OnLeftColor()
+        {
+            if (_playerStat.CarType.ColorIndex > 0)
+                _playerStat.CarType.ColorIndex--;
+            else
+                _playerStat.CarType.ColorIndex = _playerStat.CarType.MaxColors - 1;
+
+            _playerStat.CarType.TakeCarModel(_carModel);
+        }
+
+        public void OnRightColor()
+        {
+            if (_playerStat.CarType.ColorIndex < _playerStat.CarType.MaxColors - 1)
+                _playerStat.CarType.ColorIndex++;
+            else
+                _playerStat.CarType.ColorIndex = 0;
+
+            _playerStat.CarType.TakeCarModel(_carModel);
+        }
     }
 }

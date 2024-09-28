@@ -1,12 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using PrimeTween;
 
-public class AnimBackGround : MonoBehaviour
+namespace HillClimb3d.Tweekers
 {
-    private void Start()
+    public class AnimBackGround : MonoBehaviour
     {
-        Tween.PositionX(transform, -60f, 15, Ease.Linear, -1, CycleMode.Yoyo);
+        const float END_POSITON_X = -60;
+        const float TIME_FOR_ONE_CYCLE = 15;
+        private void Start()
+        {
+            Tween.PositionX(transform, END_POSITON_X, TIME_FOR_ONE_CYCLE, Ease.Linear, -1, CycleMode.Yoyo);
+        }
     }
 }

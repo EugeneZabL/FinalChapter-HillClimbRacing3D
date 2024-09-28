@@ -1,19 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using HillClimb3d.UI.Loading;
 
-public class PauseButonType : MonoBehaviour
+
+namespace HillClimb3d.UI.Pause
 {
-    public void OnMainMenuGo()
+    public class PauseButonType : MonoBehaviour
     {
-        Time.timeScale = 1;
-        LoadManager.Instance.ChangeScreen("MainMenu");
+        public void OnMainMenuGo()
+        {
+            Time.timeScale = 1;
+            LoadManager.Instance.ChangeScreen("MainMenu");
+        }
+
+        public void OnRestartLevel()
+        {
+            Time.timeScale = 1;
+            LoadManager.Instance.ChangeScreen("2D GraficUpdate");
+        }
+
+        public void OnPauseOpen()
+        {
+            gameObject.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
     }
-    
-    public void OnRestartLevel()
-    {
-        Time.timeScale = 1;
-        LoadManager.Instance.ChangeScreen("2D GraficUpdate");
-    }    
 }

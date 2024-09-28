@@ -1,30 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using HillClimb3d.CommonLogic;
+using HillClimb3d.Tweekers;
 
-public class CoinScript : MonoBehaviour
+namespace HillClimb3d.Bonus
 {
-    [SerializeField]
-    CoinSettings _settings;
-
-    private void Start()
+    public class CoinScript : MonoBehaviour
     {
-        transform.GetComponentInChildren<TextMeshProUGUI>().text = _settings.Value.ToString();
+        [SerializeField]
+        CoinSettings _settings;
 
-        transform.localScale *= _settings.Size;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Player")
+        private void Start()
         {
+            transform.GetComponentInChildren<TextMeshProUGUI>().text = _settings.Value.ToString();
 
-            Destroy(GetComponent<Collider2D>());
+            transform.localScale *= _settings.Size;
+        }
 
-            collision.attachedRigidbody.GetComponent<ScoreManager>().TakeCoin(_settings);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.transform.tag == "Player")
+            {
 
-            GetComponent<AnimationForObject>().TakeAnim();
+                Destroy(GetComponent<Collider2D>());
+
+                collision.attachedRigidbody.GetComponent<ScoreManager>().TakeCoin(_settings);
+
+                GetComponent<AnimationForObject>().TakeAnim();
+            }
         }
     }
 }

@@ -3,42 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PauseDisable : MonoBehaviour
+namespace HillClimb3d.UI.Pause
 {
-    public float _counter = 4;
-
-    [SerializeField]
-    private GameObject _interface;
-
-    [SerializeField]
-    private GameObject _counterObj;
-
-    [SerializeField]
-    private TextMeshProUGUI _text;
-
-    private void OnEnable()
+    public class PauseDisable : MonoBehaviour
     {
-        _interface.SetActive(false);
-        _counterObj.SetActive(true);
+        const float COUNTER = 4;
+        private float _counter;
 
-        _text.text = _counter.ToString("F0");
-        _counter = 4;
-    }
+        [SerializeField]
+        private GameObject _interface;
 
-    private void Update()
-    {
-        _counter -= 1 * Time.unscaledDeltaTime;
-        _text.text = _counter.ToString("F0");
+        [SerializeField]
+        private GameObject _counterObj;
 
-        if (_counter < 1)
+        [SerializeField]
+        private TextMeshProUGUI _text;
+
+        private void OnEnable()
         {
-            _interface.SetActive(true);
-            _counterObj.SetActive(false);
+            _interface.SetActive(false);
+            _counterObj.SetActive(true);
 
-            Time.timeScale = 1;
+            _text.text = _counter.ToString("F0");
+            _counter = COUNTER;
+        }
 
-            gameObject.SetActive(false);
-            this.enabled = false;
+        private void Update()
+        {
+            _counter -= 1 * Time.unscaledDeltaTime;
+            _text.text = _counter.ToString("F0");
+
+            if (_counter < 1)
+            {
+                _interface.SetActive(true);
+                _counterObj.SetActive(false);
+
+                Time.timeScale = 1;
+
+                gameObject.SetActive(false);
+                this.enabled = false;
+            }
         }
     }
 }

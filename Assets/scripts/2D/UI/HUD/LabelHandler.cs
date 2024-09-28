@@ -1,67 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class LableHandler : MonoBehaviour
+namespace HillClimb3d.UI
 {
-    public static LableHandler Instance { get; private set; }
-
-    private void Awake()
+    public class LableHandler : MonoBehaviour
     {
-        // Если уже есть экземпляр, не создаём новый и уничтожаем текущий объект
-        if (Instance != null && Instance != this)
+        public static LableHandler Instance { get; private set; }
+
+        [HideInInspector]
+        public Canvas HUDCanvas;
+
+        [HideInInspector]
+        public DistantCalculate DistantCalc;
+
+        [SerializeField]
+        TextMeshProUGUI _scoreLable, _coinLable, _fuelLable, _distanceLable;
+
+        [SerializeField]
+        Slider _fuelSlider, _distanceSlider;
+
+        public Slider DistancesSlider { get { return _distanceSlider; } set { _distanceSlider = value; } }
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            Instance = this;
+            HUDCanvas = GetComponent<Canvas>();
+            DistantCalc = GetComponent<DistantCalculate>();
         }
 
-        // Устанавливаем текущий экземпляр как активный
-        Instance = this;
-
-        // Не вызываем DontDestroyOnLoad, чтобы объект был уничтожен при смене сцены
-    }
-
-    private void OnDestroy()
-    {
-        // При уничтожении сцены или объекта сбрасываем ссылку
-        if (Instance == this)
+        public void UpdateScoreLine(float score)
         {
-            Instance = null;
+            _scoreLable.text = score.ToString("F0");
         }
-    }
+        public void UpdateCoinLine(float coins)
+        {
+            _coinLable.text = coins.ToString("F0");
+        }
 
-    public Canvas HUDCanvas;
+        public void UpdateFuel(float amountFuel)
+        {
+            _fuelLable.text = amountFuel.ToString("F1");
+            _fuelSlider.value = amountFuel;
+        }
 
-    [SerializeField]
-    TextMeshProUGUI _scoreLable, _coinLable, _fuelLable, _distanceLable;
-
-    [SerializeField]
-    Slider _fuelSlider, _distanceSlider;
-
-    public Slider DistancesSlider { get {return _distanceSlider; } set { _distanceSlider = value; } }
-
-    public DistantLabel DistantLabel;
-
-    public void UpdateScoreLine(float score)
-    {
-        _scoreLable.text = score.ToString("F0");
-    }
-    public void UpdateCoinLine(float coins)
-    {
-        _coinLable.text = coins.ToString("F0");
-    }
-
-    public void UpdateFuel(float amountFuel)
-    {
-        _fuelLable.text = amountFuel.ToString("F1");
-        _fuelSlider.value = amountFuel;
-    }
-
-    public void UpdateDistance(float playerToFinish, float playerToStart)
-    {
-        _distanceLable.text = playerToFinish.ToString("F0");
-        _distanceSlider.value = playerToStart;
+        public void UpdateDistance(float playerToFinish, float playerToStart)
+        {
+            _distanceLable.text = playerToFinish.ToString("F0");
+            _distanceSlider.value = playerToStart;
+        }
     }
 }
