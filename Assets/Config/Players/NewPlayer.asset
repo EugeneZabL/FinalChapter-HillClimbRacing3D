@@ -16,5 +16,5 @@ MonoBehaviour:
   MaxLevel: 10
   _correctLevelOfSpeed: 1
   _correctLevelOfFuel: 1
-  _maxScore: 1361
-  Coins: 189
+  _maxScore: 0
+  Coins: 0
