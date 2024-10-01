@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using HillClimb3d.UI.Loading;
 
 namespace HillClimb3d.UI
 {
@@ -10,8 +10,7 @@ namespace HillClimb3d.UI
 
         public void OnContinButton()
         {
-            SceneManager.LoadScene("MainMenu");
-
+            LoadManager.Instance.ChangeScreen("MainMenu");
         }
     }
 }
