@@ -5,7 +5,7 @@ using HillClimb3d.CommonLogic;
 
 namespace HillClimb3d.UI.Controll
 {
-    public class BreakButtonTrigger : EventTrigger
+    public class GasButtonTrigger : EventTrigger
     {
         Vector3 _baseScale;
         const float SCALE_MIN = 0.8F;
